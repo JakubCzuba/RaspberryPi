@@ -5,7 +5,7 @@ hcsr04 = DistanceSensor(echo= 5, trigger= 7)
 
 try:
     while True:
-        distance: int = hcsr04 * 100
+        distance = hcsr04.distance * 100
         sleep(0.5)
         if distance >= 50:
             print("Pozostała karma: 100%")
@@ -27,5 +27,8 @@ try:
             print("Pozostała karma: 20%")
         elif distance >= 5:
             print("Pozostała karma: 10%")
-except False:
-    print("Error XD")
+        else:
+            print("Pusty pojemnik!!!")
+except Exception:
+    print("Error XD", Exception)
+
